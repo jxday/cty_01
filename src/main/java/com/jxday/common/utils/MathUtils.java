@@ -20,6 +20,7 @@ public class MathUtils {
 
     //这个类不能够被实例化
     private MathUtils() {
+        Double aDouble = new Double(100);
     }
     
     private BigDecimal getHailEven(double number){

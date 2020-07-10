@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import java.math.BigDecimal;
+
 /**
  * 〈测试算数类〉
  *
@@ -31,6 +33,11 @@ public class MathUtilsTest {
     
     @Test
     private void testMethod1(){
+    }
+
+    public static void main(String[] args) {
+        BigDecimal subtract = new BigDecimal(100D).subtract(new BigDecimal(20D));
+        System.out.println(String.format("%.2f",subtract));
     }
     
     
