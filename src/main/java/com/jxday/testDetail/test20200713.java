@@ -41,19 +41,19 @@ public class test20200713 implements Lock, Serializable {
 
         protected boolean tryRelease(int arg) {
             assert arg == 0;
-//            if (getState() == 1){
-//                if (compareAndSetState(1,0)){
-//                    setExclusiveOwnerThread(null);
-//                    return true;
-//                }  
-//            }
-//            return false; 
-            if (getState() == 0){
-                throw new UnsupportedOperationException();
+            if (getState() == 1){
+                if (compareAndSetState(1,0)){
+                    setExclusiveOwnerThread(null);
+                    return true;
+                }  
             }
-            setExclusiveOwnerThread(null);
-            setState(1);
-            return true;
+            return false; 
+//            if (getState() == 0){
+//                throw new UnsupportedOperationException();
+//            }
+//            setExclusiveOwnerThread(null);
+//            setState(1);
+//            return true;
         }
         Condition newCondition(){
             return new ConditionObject();
