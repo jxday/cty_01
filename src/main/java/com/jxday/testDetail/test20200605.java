@@ -21,7 +21,7 @@ public class test20200605 {
             }
         };
         
-        new Thread(runnable).run();
+        new Thread(runnable).start();
         
         synchronized (runnable){
             

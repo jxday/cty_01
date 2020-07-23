@@ -1,6 +1,6 @@
 package com.jxday.testDetail;
 
-import org.mockito.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.Enhancer;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
