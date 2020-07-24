@@ -11,7 +11,7 @@ import java.util.Objects;
  * @create 2020-01-08 10:48
  * @Version 1.0.0
  */
-public class Person{
+public class Person implements Comparable{
     private String name;
     private String male;
     private  Integer age;
@@ -72,5 +72,10 @@ public class Person{
     @Override
     public int hashCode() {
         return Objects.hash(getAge(), getName(), getMale());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
