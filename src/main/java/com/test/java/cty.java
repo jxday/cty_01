@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**
@@ -24,8 +25,11 @@ import java.util.stream.Stream;
  */
 public class cty {
     public static void main(String[] args) {
-        assert test() == 1: "不是1";
-        System.out.println(new SimpleDateFormat().format(new Date(System.currentTimeMillis())));
+       int k = 0;
+       int parent = k << 1;
+       
+       
+       System.out.println(parent);
     }
     
     public static int test(){
