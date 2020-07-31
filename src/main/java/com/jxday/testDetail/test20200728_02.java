@@ -1,7 +1,5 @@
 package com.jxday.testDetail;
 
-import com.sun.org.apache.bcel.internal.generic.ALOAD;
-import com.test.java.entity.Person;
 import com.test.java.entity.PersonDTO;
 
 import java.util.ArrayList;
