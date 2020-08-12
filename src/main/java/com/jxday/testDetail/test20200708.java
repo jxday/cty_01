@@ -39,7 +39,8 @@ public class test20200708 {
             s =  "bbb";
             return s = "ccc";
         }finally {
-            s = "ddd";
+//            s = "ddd";
+            return s = "ddd";
         }
     }
 }

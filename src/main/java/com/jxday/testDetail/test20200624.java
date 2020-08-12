@@ -17,11 +17,17 @@ import java.lang.reflect.Proxy;
 public class test20200624 {
     static interface IService {
         public void sayHello();
+        public void sayHello1();
     }
     static class RealService1 implements IService {
         @Override
         public void sayHello() {
             System.out.println("hello111");
+        }
+
+        @Override
+        public void sayHello1() {
+            System.out.println("1");
         }
     }
 
@@ -30,12 +36,18 @@ public class test20200624 {
         public void sayHello() {
             System.out.println("hello222");
         }
+
+        @Override
+        public void sayHello1() {
+            String name = this.getClass().getClassLoader().getClass().getName();
+            System.out.println(name);
+        }
     }
     static class SimpleInvocationHandler implements InvocationHandler {
         private Object realObj;
-//        public SimpleInvocationHandler(Object realObj) {
-//            this.realObj = realObj;
-//        }
+        public SimpleInvocationHandler(Object realObj) {
+            this.realObj = realObj;
+        }
         public Object bind(Object delegate) {
             this.realObj = delegate;
             return Proxy.newProxyInstance(this.realObj.getClass().getClassLoader(), this.realObj.getClass().getInterfaces(), this);
@@ -52,19 +64,22 @@ public class test20200624 {
     public static void main(String[] args) {
         IService realService1 = new RealService1();
         IService realService2 = new RealService2();
-//        IService proxyService = (IService) Proxy.newProxyInstance(IService.class.getClassLoader(), new Class<?>[] { IService.class }, new SimpleInvocationHandler(realService));
+        IService realService = new RealService2();
+        IService proxyService = (IService) Proxy.newProxyInstance(IService.class.getClassLoader(), new Class<?>[] { IService.class }, new SimpleInvocationHandler(realService));
 //        System.out.println(realService.getClass());
 //        System.out.println(proxyService.getClass());
-//        proxyService.sayHello();
+        proxyService.sayHello();
+        proxyService.sayHello1();
 
-        SimpleInvocationHandler handler = new SimpleInvocationHandler();
-        IService bind1 =(IService)handler.bind(realService1);
-        bind1.sayHello();
-        IService bind2 =(IService)handler.bind(realService2);
-        bind1.sayHello();
-        bind2.sayHello();
-
-        Enhancer enhancer = new Enhancer();
+//        SimpleInvocationHandler handler = new SimpleInvocationHandler();
+//        IService bind1 =(IService)handler.bind(realService1);
+//        bind1.sayHello();
+//        
+//        IService bind2 =(IService)handler.bind(realService2);
+//        bind1.sayHello();
+//        bind2.sayHello();
+//
+//        Enhancer enhancer = new Enhancer();
 
     }
 
