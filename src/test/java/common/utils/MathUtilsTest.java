@@ -17,27 +17,30 @@ import java.math.BigDecimal;
  * @create 2019-11-15 17:23
  * @Version 1.0.0
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class MathUtilsTest {
     
-    @Autowired
-    private WebTestClient webClient;
+//    @Autowired
+//    private WebTestClient webClient;
     
     @Test
-    private void exampleTest(){
-        this.webClient.get().uri("/hello").exchange()
-                .expectStatus().isOk().expectBody(String.class)
-                .isEqualTo("Welcome to springboot2 world ~");
+    public void exampleTest(){
+//        this.webClient.get().uri("/hello").exchange()
+//                .expectStatus().isOk().expectBody(String.class)
+//                .isEqualTo("Welcome to springboot2 world ~");
+        System.err.println(111111);
     }
     
     @Test
-    private void testMethod1(){
+    public void testMethod1(){
+        System.out.println(2222);
     }
 
+    @Test
     public static void main(String[] args) {
         BigDecimal subtract = new BigDecimal(100D).subtract(new BigDecimal(20D));
-        System.out.println(String.format("%.2f",subtract));
+        System.out.println(String.format("%.2f",subtract)+"==============");
     }
     
     

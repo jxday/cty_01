@@ -27,6 +27,8 @@ import java.util.stream.Stream;
  */
 public class cty {
     public static void main(String[] args) throws InterruptedException {
+        new Object();   //2020年8月25日，new的对象
+        
         Thread thread = new Thread(new InterruptThread());
         thread.start();
         System.out.println("main线程启动了");
@@ -36,7 +38,7 @@ public class cty {
 
     public static class InterruptThread implements Runnable {
         
-        @SneakyThrows
+        @SneakyThrows 
         @Override
         public void run() {
 //阻塞
