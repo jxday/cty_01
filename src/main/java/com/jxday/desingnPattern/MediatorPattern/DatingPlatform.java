@@ -18,11 +18,13 @@ import java.util.List;
 public class DatingPlatform {
     public static void main(String[] args) {
         Medium md = new EstateMedium();    //房产中介
-        Customer member1, member2;
+        Customer member1, member2,member3;
         member1 = new Seller("张三(卖方)");
         member2 = new Buyer("李四(买方)");
+        member3 = new Buyer("王五(买方)");
         md.register(member1); //客户注册
         md.register(member2);
+        md.register(member3);
     }
 }
 //抽象中介者：中介公司
@@ -33,12 +35,16 @@ interface Medium {
 //具体中介者：房地产中介
 class EstateMedium implements Medium {
     private List<Customer> members = new ArrayList<Customer>();
+    
+    //注册方法-在中介处注册服务
     public void register(Customer member) {
         if (!members.contains(member)) {
             members.add(member);
             member.setMedium(this);
         }
     }
+    
+    //分发通知
     public void relay(String from, String ad) {
         for (Customer ob : members) {
             String name = ob.getName();
@@ -51,8 +57,11 @@ class EstateMedium implements Medium {
 //抽象同事类：客户
 abstract class Customer extends JFrame implements ActionListener {
     private static final long serialVersionUID = -7219939540794786080L;
+    //所在中介
     protected Medium medium;
+    //名字
     protected String name;
+    //需要发送的内容
     JTextField SentText;
     JTextArea ReceiveArea;
     public Customer(String name) {
