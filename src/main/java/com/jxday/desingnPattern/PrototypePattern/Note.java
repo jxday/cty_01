@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * 〈    使用流的方式，对实现了@Serializable的对象进行深拷贝    〉
  *
- * @author 汤仁杰
+ * @author cty
  * @ClassName Note
  * @create 2020-11-16 13:51
  * @Version 1.0.0

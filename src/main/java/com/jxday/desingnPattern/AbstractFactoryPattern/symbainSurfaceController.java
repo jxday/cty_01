@@ -3,7 +3,7 @@ package com.jxday.desingnPattern.AbstractFactoryPattern;
 /**
  * 〈〉
  *
- * @author 汤仁杰
+ * @author cty
  * @ClassName symbainSurfaceController
  * @create 2020-11-13 16:35
  * @Version 1.0.0

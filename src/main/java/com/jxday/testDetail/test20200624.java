@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * 〈动态代理〉
+ * 〈动态代理    通过二进制字节码，分析类的属性，方法〉
  *
  * @author cty
  * @ClassName test20200624
@@ -43,6 +43,7 @@ public class test20200624 {
             System.out.println(name);
         }
     }
+    //对象适配器模式
     static class SimpleInvocationHandler implements InvocationHandler {
         private Object realObj;
         public SimpleInvocationHandler(Object realObj) {
@@ -50,12 +51,26 @@ public class test20200624 {
         }
         public Object bind(Object delegate) {
             this.realObj = delegate;
-            return Proxy.newProxyInstance(this.realObj.getClass().getClassLoader(), this.realObj.getClass().getInterfaces(), this);
+            return Proxy.newProxyInstance(
+                    this.realObj.getClass().getClassLoader(), 
+                    this.realObj.getClass().getInterfaces(), 
+                    this
+            );
         }
+
+        /**
+         *  super.h.invoke(this, m3, (Object[])null);
+         * @param proxy     this
+         * @param method    被代理方法
+         * @param args      被代理方法的参数
+         * @return
+         * @throws Throwable
+         */
         @Override
         public Object invoke(Object proxy, Method method,
                              Object[] args) throws Throwable {
             System.out.println("entering " + method.getName());
+            //realObj：接口的实现类，对该类中的接口方法进行代理
             Object result = method.invoke(realObj, args);
             System.out.println("leaving " + method.getName());
             return result;
@@ -65,7 +80,11 @@ public class test20200624 {
         IService realService1 = new RealService1();
         IService realService2 = new RealService2();
         IService realService = new RealService2();
-        IService proxyService = (IService) Proxy.newProxyInstance(IService.class.getClassLoader(), new Class<?>[] { IService.class }, new SimpleInvocationHandler(realService));
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+        //接口的类加载器   接口的类对象  实现Handler的  
+        IService proxyService = (IService) Proxy.newProxyInstance(IService.class.getClassLoader(), 
+                new Class<?>[] { IService.class }, 
+                new SimpleInvocationHandler(realService));
 //        System.out.println(realService.getClass());
 //        System.out.println(proxyService.getClass());
         proxyService.sayHello();

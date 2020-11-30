@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * 〈    通过原型工厂，以浅拷贝的形式，实现对功能接口的创建   〉
  *
- * @author 汤仁杰
+ * @author cty
  * @ClassName PrototypeManager
  * @create 2020-11-16 14:23
  * @Version 1.0.0

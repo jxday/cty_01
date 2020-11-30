@@ -8,7 +8,7 @@ import java.net.URLConnection;
 /**
  * 〈〉
  *
- * @author 汤仁杰
+ * @author cty
  * @ClassName test20201112
  * @create 2020-11-12 15:48
  * @Version 1.0.0

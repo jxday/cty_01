@@ -3,7 +3,7 @@ package com.jxday.desingnPattern.PrototypeManager;
 /**
  * 〈〉
  *
- * @author 汤仁杰
+ * @author cty
  * @ClassName MonkeyPrototype
  * @create 2020-11-16 14:44
  * @Version 1.0.0
