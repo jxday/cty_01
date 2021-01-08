@@ -1,10 +1,6 @@
-package com.jxday.spring.framework;
+package com.jxday.spring.framework.FInitDestoryMethod;
 
-import com.test.java.entity.Person;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 /**
  * 〈InitializingBean 的实现类，并且与@PostConstruct 做比较〉

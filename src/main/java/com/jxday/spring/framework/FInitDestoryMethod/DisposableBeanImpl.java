@@ -1,7 +1,6 @@
-package com.jxday.spring.framework;
+package com.jxday.spring.framework.FInitDestoryMethod;
 
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
 

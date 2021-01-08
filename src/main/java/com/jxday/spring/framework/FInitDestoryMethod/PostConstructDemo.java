@@ -1,8 +1,4 @@
-package com.jxday.spring.framework;
-
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
+package com.jxday.spring.framework.FInitDestoryMethod;
 
 /**
  * 〈〉

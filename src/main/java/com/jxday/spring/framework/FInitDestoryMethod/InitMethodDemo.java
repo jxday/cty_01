@@ -1,4 +1,4 @@
-package com.jxday.spring.framework;
+package com.jxday.spring.framework.FInitDestoryMethod;
 
 /**
  * 〈〉
