@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @create 1/5/21 11:17 AM
  * @Version 1.0.0
  */
-@Component
+//@Component
 public class SmartLifecycleDemo implements SmartLifecycle {
     
     private boolean isRunning = false;

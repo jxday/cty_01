@@ -2,6 +2,7 @@ package com.test.java;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.test.java.entity.Person;
 import lombok.SneakyThrows;
 import org.springframework.util.ClassUtils;
@@ -14,8 +15,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * 〈〉
@@ -28,6 +30,19 @@ import java.util.stream.Stream;
 public class cty {
     public static void main(String[] args) throws InterruptedException {
         new Object();   //2020年8月25日，new的对象
+        
+        
+        ExecutorService service = Executors.newCachedThreadPool();
+        service.execute(
+            () -> {
+            // ... do something inside runnable task
+            
+        });
+        service.shutdown();
+
+        ThreadFactory build = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
+
+        StreamSupport.stream(new ArrayList<>().spliterator(),false);
         
         Thread thread = new Thread(new InterruptThread());
         thread.start();

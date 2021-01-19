@@ -1,5 +1,7 @@
 package com.jxday;
 
+import com.jxday.modules.codereview.entity.People;
+import com.jxday.testDetail.test20210119;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
