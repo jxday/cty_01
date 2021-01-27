@@ -14,3 +14,22 @@ spring.redis.jedis.pool.max-wait=-1
 spring.redis.jedis.pool.max-idle=8
   # 连接池中的最小空闲连接
 spring.redis.jedis.pool.min-idle=0
+
+
+spring:
+  profiles:
+    active: jdbc
+  application:
+    name: config-jdbc-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/config-jdbc?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    config:
+      label: master
+      server:
+        jdbc: true
+server:
+  port: 8769

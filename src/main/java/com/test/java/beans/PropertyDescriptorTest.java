@@ -28,6 +28,8 @@ public class PropertyDescriptorTest {
         System.out.println(teacher);
     }
     
+    
+    
     private void test1(){
         Person person = new Person();
         person.setName("aaa");
