@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 〈〉
+ * 〈分别使用 自定义类加载器 和 系统类加载器 创建实例〉
  *
  * @author cty
  * @ClassName test20200915
@@ -18,6 +18,16 @@ public class test20200915 {
             public Class<?> loadClass(String name) throws ClassNotFoundException{
                 try {
                     String s = name.substring(name.lastIndexOf(".") + 1) + ".class";
+                    /**
+                     * 调用方法 loadClass("com.jxday.testDetail.test20200915")
+                     * name是 : com.jxday.testDetail.test20200915
+                     * s是 : test20200915.class
+                     * name是 : java.lang.Object
+                     * s是 : Object.class
+                     */
+                    System.out.println("name是 : "+ name);
+                    System.out.println("s是 : "+ s);
+                    
                     InputStream stream = getClass().getResourceAsStream(s);
                     if (stream == null){
                         return super.loadClass(name);
@@ -33,10 +43,13 @@ public class test20200915 {
         };
 
         Object instance = classLoader.loadClass("com.jxday.testDetail.test20200915").newInstance();
+        Object instance2 = ClassLoader.getSystemClassLoader().loadClass("com.jxday.testDetail.test20200915").newInstance();
 
         System.out.println(instance.getClass());
+        System.err.println(instance2.getClass());
 
         System.out.println(instance instanceof com.jxday.testDetail.test20200915);
+        System.err.println(instance2 instanceof com.jxday.testDetail.test20200915);
         
     }
 }

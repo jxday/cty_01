@@ -1,5 +1,8 @@
 package com.jxday;
 
+import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.sql.*;
 
 
@@ -13,7 +16,11 @@ import java.sql.*;
  */
 public class ctyJDBCtest {
     public static void main(String[] args) throws Exception{
-        test1();
+//        test1();
+        InetAddress ip = InetAddress.getLocalHost();
+        System.out.println(ip);
+        System.out.println(NetworkInterface.getByInetAddress(ip));
+        System.out.println(ManagementFactory.getRuntimeMXBean().getName());
     }
     public static void test(){
         Connection conn = null;
